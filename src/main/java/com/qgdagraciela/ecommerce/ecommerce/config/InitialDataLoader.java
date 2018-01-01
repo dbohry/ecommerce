@@ -6,7 +6,7 @@ import com.qgdagraciela.ecommerce.ecommerce.entities.privilege.Privilege;
 import com.qgdagraciela.ecommerce.ecommerce.entities.privilege.PrivilegeRepository;
 import com.qgdagraciela.ecommerce.ecommerce.entities.role.Role;
 import com.qgdagraciela.ecommerce.ecommerce.entities.role.RoleRepository;
-import com.qgdagraciela.ecommerce.ecommerce.service.PasswordEncoder;
+import com.qgdagraciela.ecommerce.ecommerce.service.auth.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

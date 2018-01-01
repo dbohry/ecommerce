@@ -2,7 +2,7 @@ package com.qgdagraciela.ecommerce.ecommerce.service.cliente;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
 import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.ClienteRepository;
-import com.qgdagraciela.ecommerce.ecommerce.service.PasswordEncoder;
+import com.qgdagraciela.ecommerce.ecommerce.service.auth.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

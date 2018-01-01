@@ -1,9 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.service.auth;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
-import com.qgdagraciela.ecommerce.ecommerce.service.PasswordEncoder;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
-import com.qgdagraciela.ecommerce.ecommerce.validator.AuthValidator;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
