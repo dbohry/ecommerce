@@ -19,7 +19,7 @@ public class App {
     public FilterRegistrationBean jwtFilter() {
         final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(new JwtFilter());
-        registrationBean.addUrlPatterns("/ecommerce/secure*");
+        registrationBean.addUrlPatterns("/ecommerce/api*");
 
         return registrationBean;
     }

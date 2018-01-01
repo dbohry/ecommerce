@@ -1,4 +1,4 @@
-package com.qgdagraciela.ecommerce.ecommerce.controllers.cliente;
+package com.qgdagraciela.ecommerce.ecommerce.controllers.v1.cliente;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/ecommerce/secure/clientes")
+@RequestMapping("/ecommerce/api/v1/clientes")
 public class ClienteController {
 
     private ClienteService service;
