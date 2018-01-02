@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.qgdagraciela.ecommerce.ecommerce.service.auth.AuthService.SECRET_KEY;
+
 public class JwtFilter extends GenericFilterBean {
 
     public void doFilter(final ServletRequest req, final ServletResponse res, final FilterChain chain)
@@ -35,7 +37,7 @@ public class JwtFilter extends GenericFilterBean {
             final String token = authHeader.substring(7);
 
             try {
-                final Claims claims = Jwts.parser().setSigningKey("secret").parseClaimsJws(token).getBody();
+                final Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
                 request.setAttribute("claims", claims);
             } catch (final SignatureException e) {
                 throw new ServletException("Invalid token");

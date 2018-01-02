@@ -16,6 +16,7 @@ import java.util.Date;
 @Service
 public class AuthService {
 
+    public static final String SECRET_KEY = "secret";
     private ClienteService clienteService;
     private AuthValidator validator;
     private PasswordEncoder passwordEncoder;
@@ -38,7 +39,7 @@ public class AuthService {
         if (user == null) throw new ServletException("Cliente não encontrado.");
 
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
-        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary("secret");
+        byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SECRET_KEY);
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
         return Jwts.builder()
