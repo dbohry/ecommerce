@@ -41,7 +41,7 @@ public class BaseController {
         dto.setNome(nome);
 
         Cliente response = clienteService.save(converter.convert(dto));
-        return ResponseEntity.status(HttpStatus.OK).body(converter.convert(response));
+        return ResponseEntity.status(HttpStatus.CREATED).body(converter.convert(response));
     }
 
     @ApiOperation(value = "Informe email e senha para se autenticar", response = String.class)
