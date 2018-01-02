@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -15,12 +16,19 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
+    @NotNull
     private String nome;
+
     @Column(nullable = false)
+    @NotNull
     private String email;
+
     @Column(nullable = false)
+    @NotNull
     private String senha;
+
     @Column
     private String cpf;
     @Column
@@ -31,7 +39,9 @@ public class Cliente {
     private String estado;
     @Column
     private String cidade;
+
     @Column
+    @NotNull
     private Boolean ativo;
 
     @ManyToMany
@@ -41,6 +51,7 @@ public class Cliente {
                     name = "cliente_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
+    @NotNull
     private List<Role> roles;
 
     public Long getId() {
