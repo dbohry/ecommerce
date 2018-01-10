@@ -1,4 +1,4 @@
-package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente;
+package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.cliente;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
@@ -33,8 +33,8 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteDTO> get(@PathVariable("id") Long id,
-                                          @RequestHeader("authorization") String token) {
+    public ResponseEntity<ClienteDTO> get(@RequestHeader("authorization") String token,
+                                          @PathVariable("id") Long id) {
         Cliente response = service.get(id);
         return ResponseEntity.status(HttpStatus.OK).body(converter.convert(response));
     }
