@@ -1,7 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.api.produto;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.produto.ProdutoConverter;
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.produto.ProdutoDTO;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.produto.ProdutoConverter;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.produto.ProdutoDTO;
 import com.qgdagraciela.ecommerce.ecommerce.entities.produto.Produto;
 import org.junit.Before;
 import org.junit.Test;

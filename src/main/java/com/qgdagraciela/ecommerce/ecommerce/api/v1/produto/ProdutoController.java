@@ -1,6 +1,6 @@
-package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.produto;
+package com.qgdagraciela.ecommerce.ecommerce.api.v1.produto;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.CrudController;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.CrudController;
 import com.qgdagraciela.ecommerce.ecommerce.entities.produto.Produto;
 import com.qgdagraciela.ecommerce.ecommerce.service.produto.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;

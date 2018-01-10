@@ -1,7 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.api;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.cliente.ClienteConverter;
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.cliente.ClienteDTO;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteConverter;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteDTO;
 import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
 import com.qgdagraciela.ecommerce.ecommerce.service.auth.AuthService;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;

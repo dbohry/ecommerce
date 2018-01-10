@@ -1,4 +1,4 @@
-package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.pedido;
+package com.qgdagraciela.ecommerce.ecommerce.api.v1.pedido;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.produto.Produto;
 

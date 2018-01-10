@@ -1,4 +1,4 @@
-package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.produto;
+package com.qgdagraciela.ecommerce.ecommerce.api.v1.produto;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

@@ -1,4 +1,4 @@
-package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.produto;
+package com.qgdagraciela.ecommerce.ecommerce.api.v1.produto;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.produto.Produto;
 import org.springframework.stereotype.Component;
