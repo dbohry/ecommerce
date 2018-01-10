@@ -1,5 +1,6 @@
 package com.qgdagraciela.ecommerce.ecommerce.entities.pedido;
 
+import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
 import com.qgdagraciela.ecommerce.ecommerce.entities.produto.Produto;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -21,18 +22,14 @@ public class Pedido {
     @NotNull
     private Produto produto;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id")
+    @NotNull
+    private Cliente cliente;
+
     @Column
     @NotNull
     private Integer quantidade;
-
-    public Pedido() {
-    }
-
-    public Pedido(Long id, Produto produto, Integer quantidade) {
-        this.id = id;
-        this.produto = produto;
-        this.quantidade = quantidade;
-    }
 
     public Long getId() {
         return id;
@@ -48,6 +45,14 @@ public class Pedido {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Integer getQuantidade() {
@@ -69,6 +74,7 @@ public class Pedido {
         return new EqualsBuilder()
                 .append(id, pedido.id)
                 .append(produto, pedido.produto)
+                .append(cliente, pedido.cliente)
                 .append(quantidade, pedido.quantidade)
                 .isEquals();
     }
@@ -78,6 +84,7 @@ public class Pedido {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .append(produto)
+                .append(cliente)
                 .append(quantidade)
                 .toHashCode();
     }
@@ -87,6 +94,7 @@ public class Pedido {
         return new ToStringBuilder(this)
                 .append("id", id)
                 .append("produto", produto)
+                .append("cliente", cliente)
                 .append("quantidade", quantidade)
                 .toString();
     }
