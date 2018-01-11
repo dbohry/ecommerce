@@ -25,7 +25,7 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ClienteDTO>> get(@RequestHeader("authorization") String token) {
+    public ResponseEntity<List<ClienteDTO>> getAll(@RequestHeader("authorization") String token) {
         List<Cliente> response = service.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(response.stream()
                 .map(c -> converter.convert(c))
