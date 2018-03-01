@@ -1,8 +1,8 @@
 package com.qgdagraciela.ecommerce.ecommerce.api;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteConverter;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioConverter;
 import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteDTO;
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import com.qgdagraciela.ecommerce.ecommerce.service.auth.AuthService;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
 import io.swagger.annotations.ApiOperation;
@@ -19,18 +19,18 @@ public class BaseController {
 
     private ClienteService clienteService;
     private AuthService authService;
-    private ClienteConverter converter;
+    private UsuarioConverter converter;
 
     @Autowired
     public BaseController(ClienteService clienteService,
                           AuthService authService,
-                          ClienteConverter converter) {
+                          UsuarioConverter converter) {
         this.clienteService = clienteService;
         this.authService = authService;
         this.converter = converter;
     }
 
-    @ApiOperation(value = "Informe os parametros para crianção de um novo cliente", response = ClienteDTO.class)
+    @ApiOperation(value = "Informe os parametros para crianção de um novo usuario", response = ClienteDTO.class)
     @PostMapping("/register")
     public ResponseEntity<ClienteDTO> register(@RequestParam("email") String email,
                                                @RequestParam("senha") String senha,
@@ -40,7 +40,7 @@ public class BaseController {
         dto.setSenha(senha);
         dto.setNome(nome);
 
-        Cliente response = clienteService.save(converter.convert(dto));
+        Usuario response = clienteService.save(converter.convert(dto));
         return ResponseEntity.status(HttpStatus.CREATED).body(converter.convert(response));
     }
 

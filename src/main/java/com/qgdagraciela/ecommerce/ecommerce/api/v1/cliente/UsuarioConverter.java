@@ -1,15 +1,15 @@
 package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClienteConverter {
+public class UsuarioConverter {
 
-    public Cliente convert(ClienteDTO dto) {
+    public Usuario convert(ClienteDTO dto) {
         if (dto == null) return null;
 
-        Cliente entity = new Cliente();
+        Usuario entity = new Usuario();
 
         entity.setSenha(dto.getSenha());
         entity.setEmail(dto.getEmail());
@@ -19,7 +19,7 @@ public class ClienteConverter {
         return entity;
     }
 
-    public ClienteDTO convert(Cliente entity) {
+    public ClienteDTO convert(Usuario entity) {
         if (entity == null) return null;
 
         ClienteDTO dto = new ClienteDTO();

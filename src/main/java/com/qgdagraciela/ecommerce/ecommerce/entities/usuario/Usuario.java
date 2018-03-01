@@ -1,4 +1,4 @@
-package com.qgdagraciela.ecommerce.ecommerce.entities.cliente;
+package com.qgdagraciela.ecommerce.ecommerce.entities.usuario;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.role.Role;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -148,20 +148,20 @@ public class Cliente {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cliente cliente = (Cliente) o;
+        Usuario usuario = (Usuario) o;
 
         return new EqualsBuilder()
-                .append(id, cliente.id)
-                .append(nome, cliente.nome)
-                .append(email, cliente.email)
-                .append(senha, cliente.senha)
-                .append(cpf, cliente.cpf)
-                .append(telefone, cliente.telefone)
-                .append(endereco, cliente.endereco)
-                .append(estado, cliente.estado)
-                .append(cidade, cliente.cidade)
-                .append(ativo, cliente.ativo)
-                .append(roles, cliente.roles)
+                .append(id, usuario.id)
+                .append(nome, usuario.nome)
+                .append(email, usuario.email)
+                .append(senha, usuario.senha)
+                .append(cpf, usuario.cpf)
+                .append(telefone, usuario.telefone)
+                .append(endereco, usuario.endereco)
+                .append(estado, usuario.estado)
+                .append(cidade, usuario.cidade)
+                .append(ativo, usuario.ativo)
+                .append(roles, usuario.roles)
                 .isEquals();
     }
 

@@ -1,6 +1,6 @@
 package com.qgdagraciela.ecommerce.ecommerce.service.auth;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,7 +11,6 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.ServletException;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
-import java.util.Date;
 
 @Service
 public class AuthService {
@@ -30,13 +29,13 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public String getToken(Cliente cliente) throws ServletException {
-        validator.validate(cliente);
+    public String getToken(Usuario usuario) throws ServletException {
+        validator.validate(usuario);
 
-        String hash = passwordEncoder.encode(cliente.getSenha());
-        Cliente user = clienteService.findByLogin(cliente.getEmail(), hash);
+        String hash = passwordEncoder.encode(usuario.getSenha());
+        Usuario user = clienteService.findByLogin(usuario.getEmail(), hash);
 
-        if (user == null) throw new ServletException("Cliente não encontrado.");
+        if (user == null) throw new ServletException("Usuario não encontrado.");
 
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SECRET_KEY);

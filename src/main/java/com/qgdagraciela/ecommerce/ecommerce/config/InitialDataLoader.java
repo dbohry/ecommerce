@@ -1,7 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.config;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.ClienteRepository;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.UsuarioRepository;
 import com.qgdagraciela.ecommerce.ecommerce.entities.privilege.Privilege;
 import com.qgdagraciela.ecommerce.ecommerce.entities.privilege.PrivilegeRepository;
 import com.qgdagraciela.ecommerce.ecommerce.entities.role.Role;
@@ -23,7 +23,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     boolean alreadySetup = true;
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Autowired
     private RoleRepository roleRepository;
@@ -50,13 +50,13 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
 
         Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-        Cliente user = new Cliente();
+        Usuario user = new Usuario();
         user.setSenha(passwordEncoder.encode("teste"));
         user.setNome("administrador");
         user.setEmail("administrador@teste.com");
         user.setRoles(Collections.singletonList(adminRole));
         user.setAtivo(true);
-        clienteRepository.save(user);
+        usuarioRepository.save(user);
 
         alreadySetup = true;
     }

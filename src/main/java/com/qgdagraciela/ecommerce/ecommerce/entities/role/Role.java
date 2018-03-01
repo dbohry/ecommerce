@@ -1,6 +1,6 @@
 package com.qgdagraciela.ecommerce.ecommerce.entities.role;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import com.qgdagraciela.ecommerce.ecommerce.entities.privilege.Privilege;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -18,7 +18,7 @@ public class Role {
 
     private String name;
     @ManyToMany(mappedBy = "roles")
-    private List<Cliente> users;
+    private List<Usuario> users;
 
     @ManyToMany
     @JoinTable(
@@ -57,11 +57,11 @@ public class Role {
         this.name = name;
     }
 
-    public List<Cliente> getUsers() {
+    public List<Usuario> getUsers() {
         return users;
     }
 
-    public void setUsers(List<Cliente> users) {
+    public void setUsers(List<Usuario> users) {
         this.users = users;
     }
 

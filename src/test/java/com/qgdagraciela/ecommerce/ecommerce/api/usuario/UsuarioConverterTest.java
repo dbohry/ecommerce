@@ -1,8 +1,8 @@
-package com.qgdagraciela.ecommerce.ecommerce.api.cliente;
+package com.qgdagraciela.ecommerce.ecommerce.api.usuario;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteConverter;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioConverter;
 import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteDTO;
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,23 +10,23 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-public class ClienteConverterTest {
+public class UsuarioConverterTest {
 
     private static final String EMAIL = "email@email.com";
     private static final String NOME = "nome";
     private static final Long ID = 1L;
 
-    private ClienteConverter converter;
+    private UsuarioConverter converter;
 
     @Before
     public void setUp() {
-        converter = new ClienteConverter();
+        converter = new UsuarioConverter();
     }
 
     @Test
     public void deveVerificarQuandoNulo() {
         assertThat(converter.convert((ClienteDTO) null), is(nullValue()));
-        assertThat(converter.convert((Cliente) null), is(nullValue()));
+        assertThat(converter.convert((Usuario) null), is(nullValue()));
     }
 
     @Test
@@ -34,8 +34,8 @@ public class ClienteConverterTest {
         assertThat(converter.convert(buildDTO()), is(build()));
     }
 
-    private Cliente build() {
-        Cliente c = new Cliente();
+    private Usuario build() {
+        Usuario c = new Usuario();
 
         c.setEmail(EMAIL);
         c.setNome(NOME);

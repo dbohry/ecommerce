@@ -1,6 +1,6 @@
 package com.qgdagraciela.ecommerce.ecommerce.entities.pedido;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import com.qgdagraciela.ecommerce.ecommerce.entities.produto.Produto;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -25,7 +25,7 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id")
     @NotNull
-    private Cliente cliente;
+    private Usuario usuario;
 
     @Column
     @NotNull
@@ -47,12 +47,12 @@ public class Pedido {
         this.produto = produto;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getQuantidade() {
@@ -74,7 +74,7 @@ public class Pedido {
         return new EqualsBuilder()
                 .append(id, pedido.id)
                 .append(produto, pedido.produto)
-                .append(cliente, pedido.cliente)
+                .append(usuario, pedido.usuario)
                 .append(quantidade, pedido.quantidade)
                 .isEquals();
     }
@@ -84,7 +84,7 @@ public class Pedido {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .append(produto)
-                .append(cliente)
+                .append(usuario)
                 .append(quantidade)
                 .toHashCode();
     }
@@ -94,7 +94,7 @@ public class Pedido {
         return new ToStringBuilder(this)
                 .append("id", id)
                 .append("produto", produto)
-                .append("cliente", cliente)
+                .append("usuario", usuario)
                 .append("quantidade", quantidade)
                 .toString();
     }

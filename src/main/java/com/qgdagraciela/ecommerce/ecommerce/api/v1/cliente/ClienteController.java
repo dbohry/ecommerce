@@ -1,6 +1,6 @@
 package com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.cliente.Cliente;
+import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,18 +15,18 @@ import java.util.stream.Collectors;
 public class ClienteController {
 
     private ClienteService service;
-    private ClienteConverter converter;
+    private UsuarioConverter converter;
 
     @Autowired
     public ClienteController(ClienteService service,
-                             ClienteConverter converter) {
+                             UsuarioConverter converter) {
         this.service = service;
         this.converter = converter;
     }
 
     @GetMapping
     public ResponseEntity<List<ClienteDTO>> getAll(@RequestHeader("authorization") String token) {
-        List<Cliente> response = service.getAll();
+        List<Usuario> response = service.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(response.stream()
                 .map(c -> converter.convert(c))
                 .collect(Collectors.toList()));
@@ -35,7 +35,7 @@ public class ClienteController {
     @GetMapping("/{id}")
     public ResponseEntity<ClienteDTO> get(@RequestHeader("authorization") String token,
                                           @PathVariable("id") Long id) {
-        Cliente response = service.get(id);
+        Usuario response = service.get(id);
         return ResponseEntity.status(HttpStatus.OK).body(converter.convert(response));
     }
 
