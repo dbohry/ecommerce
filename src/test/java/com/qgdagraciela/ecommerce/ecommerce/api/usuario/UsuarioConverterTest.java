@@ -15,6 +15,7 @@ public class UsuarioConverterTest {
     private static final String EMAIL = "email@email.com";
     private static final String NOME = "nome";
     private static final Long ID = 1L;
+    public static final Boolean TRUE = Boolean.TRUE;
 
     private UsuarioConverter converter;
 
@@ -40,6 +41,7 @@ public class UsuarioConverterTest {
         c.setEmail(EMAIL);
         c.setNome(NOME);
         c.setId(ID);
+        c.setAtivo(TRUE);
 
         return c;
     }
