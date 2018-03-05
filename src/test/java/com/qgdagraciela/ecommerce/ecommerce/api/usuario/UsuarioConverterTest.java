@@ -1,7 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.api.usuario;
 
 import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioConverter;
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.ClienteDTO;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioDTO;
 import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class UsuarioConverterTest {
 
     @Test
     public void deveVerificarQuandoNulo() {
-        assertThat(converter.convert((ClienteDTO) null), is(nullValue()));
+        assertThat(converter.convert((UsuarioDTO) null), is(nullValue()));
         assertThat(converter.convert((Usuario) null), is(nullValue()));
     }
 
@@ -44,8 +44,8 @@ public class UsuarioConverterTest {
         return c;
     }
 
-    private ClienteDTO buildDTO() {
-        ClienteDTO dto = new ClienteDTO();
+    private UsuarioDTO buildDTO() {
+        UsuarioDTO dto = new UsuarioDTO();
 
         dto.setEmail(EMAIL);
         dto.setNome(NOME);

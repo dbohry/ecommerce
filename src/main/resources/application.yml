@@ -2,7 +2,7 @@ spring:
   application:
     name: ecommerce
   datasource:
-    url: jdbc:mysql://localhost:3306/ecommerce?useSSL=false
+    url: jdbc:mysql://144.217.87.38:3306/ecommerce?useSSL=false
     username: root
     password: Dip4rudp
   jpa:

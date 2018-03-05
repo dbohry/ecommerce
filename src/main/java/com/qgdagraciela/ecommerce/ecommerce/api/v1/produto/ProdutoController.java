@@ -35,6 +35,14 @@ public class ProdutoController implements CrudController<ProdutoDTO> {
     }
 
     @Override
+    @PutMapping("/{id}")
+    public ResponseEntity<ProdutoDTO> update(@RequestHeader("authorization") String token,
+                                             @PathVariable("id") Long id,
+                                             @RequestBody ProdutoDTO dto) {
+        return null;
+    }
+
+    @Override
     @GetMapping
     public ResponseEntity<List<ProdutoDTO>> getAll(@RequestHeader("authorization") String token) {
         List<Produto> response = service.getAll();

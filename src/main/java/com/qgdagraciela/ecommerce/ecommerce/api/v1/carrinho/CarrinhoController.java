@@ -20,6 +20,14 @@ public class CarrinhoController implements CrudController<CarrinhoDTO> {
     }
 
     @Override
+    @PutMapping("/{id}")
+    public ResponseEntity<CarrinhoDTO> update(@RequestHeader("authorization") String token,
+                                              @PathVariable("id") Long id,
+                                              @RequestBody CarrinhoDTO dto) {
+        return null;
+    }
+
+    @Override
     @ApiOperation(value = "Retorna lista de todos os carrinhos.", response = CarrinhoDTO[].class)
     @GetMapping
     public ResponseEntity<List<CarrinhoDTO>> getAll(@RequestHeader("authorization") String token) {

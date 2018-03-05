@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UsuarioConverter {
 
-    public Usuario convert(ClienteDTO dto) {
+    public Usuario convert(UsuarioDTO dto) {
         if (dto == null) return null;
 
         Usuario entity = new Usuario();
@@ -14,19 +14,22 @@ public class UsuarioConverter {
         entity.setSenha(dto.getSenha());
         entity.setEmail(dto.getEmail());
         entity.setNome(dto.getNome());
+        entity.setCidade(dto.getCidade());
         entity.setId(dto.getId());
+        entity.setAtivo(Boolean.TRUE);
 
         return entity;
     }
 
-    public ClienteDTO convert(Usuario entity) {
+    public UsuarioDTO convert(Usuario entity) {
         if (entity == null) return null;
 
-        ClienteDTO dto = new ClienteDTO();
+        UsuarioDTO dto = new UsuarioDTO();
 
         dto.setSenha(entity.getSenha());
         dto.setEmail(entity.getEmail());
         dto.setNome(entity.getNome());
+        dto.setCidade(entity.getCidade());
         dto.setId(entity.getId());
 
         return dto;

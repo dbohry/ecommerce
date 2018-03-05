@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
@@ -46,9 +46,9 @@ public class Usuario {
 
     @ManyToMany
     @JoinTable(
-            name = "clientes_roles",
+            name = "usuarios_roles",
             joinColumns = @JoinColumn(
-                    name = "cliente_id", referencedColumnName = "id"),
+                    name = "usuario_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     @NotNull

@@ -11,6 +11,8 @@ public interface CrudController<T> {
 
     ResponseEntity<T> save(@RequestHeader("authorization") String token, @RequestBody T dto);
 
+    ResponseEntity<T> update(@RequestHeader("authorization") String token, @PathVariable("id") Long id, @RequestBody T dto);
+
     ResponseEntity<List<T>> getAll(@RequestHeader("authorization") String token);
 
     ResponseEntity<T> get(@RequestHeader("authorization") String token, @PathVariable("id") Long id);

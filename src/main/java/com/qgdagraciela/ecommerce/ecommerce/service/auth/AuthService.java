@@ -1,7 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.service.auth;
 
 import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
-import com.qgdagraciela.ecommerce.ecommerce.service.cliente.ClienteService;
+import com.qgdagraciela.ecommerce.ecommerce.service.usuario.UsuarioService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +16,15 @@ import java.security.Key;
 public class AuthService {
 
     public static final String SECRET_KEY = "secret";
-    private ClienteService clienteService;
+    private UsuarioService usuarioService;
     private AuthValidator validator;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AuthService(ClienteService clienteService,
+    public AuthService(UsuarioService usuarioService,
                        AuthValidator validator,
                        PasswordEncoder passwordEncoder) {
-        this.clienteService = clienteService;
+        this.usuarioService = usuarioService;
         this.validator = validator;
         this.passwordEncoder = passwordEncoder;
     }
@@ -33,7 +33,7 @@ public class AuthService {
         validator.validate(usuario);
 
         String hash = passwordEncoder.encode(usuario.getSenha());
-        Usuario user = clienteService.findByLogin(usuario.getEmail(), hash);
+        Usuario user = usuarioService.findByLogin(usuario.getEmail(), hash);
 
         if (user == null) throw new ServletException("Usuario não encontrado.");
 

@@ -18,6 +18,14 @@ public class PedidoController implements CrudController<PedidoDTO> {
     }
 
     @Override
+    @PutMapping("/{id}")
+    public ResponseEntity<PedidoDTO> update(@RequestHeader("authorization") String token,
+                                            @PathVariable("id") Long id,
+                                            @RequestBody PedidoDTO dto) {
+        return null;
+    }
+
+    @Override
     @GetMapping
     public ResponseEntity<List<PedidoDTO>> getAll(@RequestHeader("authorization") String token) {
         return null;
