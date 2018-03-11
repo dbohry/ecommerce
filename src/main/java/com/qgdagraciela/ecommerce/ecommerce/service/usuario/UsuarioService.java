@@ -67,6 +67,7 @@ public class UsuarioService {
         actual.setEstado(usuario.getEstado());
         actual.setEndereco(usuario.getEndereco());
         actual.setTelefone(usuario.getTelefone());
+        actual.setCpf(usuario.getCpf());
         return actual;
     }
 }
