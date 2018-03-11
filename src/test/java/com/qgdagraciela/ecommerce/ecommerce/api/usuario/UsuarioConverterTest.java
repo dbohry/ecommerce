@@ -1,7 +1,7 @@
 package com.qgdagraciela.ecommerce.ecommerce.api.usuario;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioConverter;
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioDTO;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.usuario.UsuarioConverter;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.usuario.UsuarioDTO;
 import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import org.junit.Before;
 import org.junit.Test;

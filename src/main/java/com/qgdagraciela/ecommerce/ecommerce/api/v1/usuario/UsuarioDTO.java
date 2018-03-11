@@ -1,58 +1,20 @@
-package com.qgdagraciela.ecommerce.ecommerce.entities.usuario;
+package com.qgdagraciela.ecommerce.ecommerce.api.v1.usuario;
 
-import com.qgdagraciela.ecommerce.ecommerce.entities.role.Role;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+public class UsuarioDTO {
 
-@Entity
-@Table(name = "usuarios", uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
-public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
-    @NotNull
     private String nome;
-
-    @Column(nullable = false)
-    @NotNull
     private String email;
-
-    @Column(nullable = false)
-    @NotNull
     private String senha;
-
-    @Column
     private String cpf;
-    @Column
     private String telefone;
-    @Column
     private String endereco;
-    @Column
     private String estado;
-    @Column
     private String cidade;
-
-    @Column
-    @NotNull
-    private Boolean ativo;
-
-    @ManyToMany
-    @JoinTable(
-            name = "usuarios_roles",
-            joinColumns = @JoinColumn(
-                    name = "usuario_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
-    @NotNull
-    private List<Role> roles;
 
     public Long getId() {
         return id;
@@ -126,42 +88,24 @@ public class Usuario {
         this.cidade = cidade;
     }
 
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        Usuario usuario = (Usuario) o;
+        UsuarioDTO that = (UsuarioDTO) o;
 
         return new EqualsBuilder()
-                .append(id, usuario.id)
-                .append(nome, usuario.nome)
-                .append(email, usuario.email)
-                .append(senha, usuario.senha)
-                .append(cpf, usuario.cpf)
-                .append(telefone, usuario.telefone)
-                .append(endereco, usuario.endereco)
-                .append(estado, usuario.estado)
-                .append(cidade, usuario.cidade)
-                .append(ativo, usuario.ativo)
-                .append(roles, usuario.roles)
+                .append(id, that.id)
+                .append(nome, that.nome)
+                .append(email, that.email)
+                .append(senha, that.senha)
+                .append(cpf, that.cpf)
+                .append(telefone, that.telefone)
+                .append(endereco, that.endereco)
+                .append(estado, that.estado)
+                .append(cidade, that.cidade)
                 .isEquals();
     }
 
@@ -177,8 +121,6 @@ public class Usuario {
                 .append(endereco)
                 .append(estado)
                 .append(cidade)
-                .append(ativo)
-                .append(roles)
                 .toHashCode();
     }
 
@@ -194,8 +136,6 @@ public class Usuario {
                 .append("endereco", endereco)
                 .append("estado", estado)
                 .append("cidade", cidade)
-                .append("ativo", ativo)
-                .append("roles", roles)
                 .toString();
     }
 }

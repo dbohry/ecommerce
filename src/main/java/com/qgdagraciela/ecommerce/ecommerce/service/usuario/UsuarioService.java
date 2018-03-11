@@ -43,6 +43,10 @@ public class UsuarioService {
         return repository.findOne(id);
     }
 
+    public Usuario getByEmail(String email) {
+        return repository.findByEmailAndAtivoTrue(email);
+    }
+
     public List<Usuario> getAll() {
         return repository.findAll();
     }
@@ -60,6 +64,9 @@ public class UsuarioService {
         actual.setEmail(usuario.getEmail());
         actual.setSenha(passwordEncoder.encode(usuario.getSenha()));
         actual.setCidade(usuario.getCidade());
+        actual.setEstado(usuario.getEstado());
+        actual.setEndereco(usuario.getEndereco());
+        actual.setTelefone(usuario.getTelefone());
         return actual;
     }
 }

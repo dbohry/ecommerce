@@ -1,7 +1,8 @@
 package com.qgdagraciela.ecommerce.ecommerce.api;
 
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioConverter;
-import com.qgdagraciela.ecommerce.ecommerce.api.v1.cliente.UsuarioDTO;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.login.LoginDTO;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.usuario.UsuarioConverter;
+import com.qgdagraciela.ecommerce.ecommerce.api.v1.usuario.UsuarioDTO;
 import com.qgdagraciela.ecommerce.ecommerce.entities.usuario.Usuario;
 import com.qgdagraciela.ecommerce.ecommerce.service.auth.AuthService;
 import com.qgdagraciela.ecommerce.ecommerce.service.usuario.UsuarioService;
@@ -32,34 +33,21 @@ public class BaseController {
 
     @ApiOperation(value = "Informe os parametros para crianção de um novo usuario", response = UsuarioDTO.class)
     @PostMapping("/register")
-    public ResponseEntity<UsuarioDTO> register(@RequestParam("email") String email,
-                                               @RequestParam("senha") String senha,
-                                               @RequestParam("nome") String nome) {
-        UsuarioDTO dto = new UsuarioDTO();
-        dto.setEmail(email);
-        dto.setSenha(senha);
-        dto.setNome(nome);
-
+    public ResponseEntity<UsuarioDTO> register(@RequestBody UsuarioDTO dto) {
         Usuario response = usuarioService.save(converter.convert(dto));
         return ResponseEntity.status(HttpStatus.CREATED).body(converter.convert(response));
     }
 
-    @ApiOperation(value = "Informe email e senha para se autenticar", response = String.class)
+    @ApiOperation(value = "Informe email e senha para se autenticar", response = LoginDTO.class)
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam("email") String email,
-                                        @RequestParam("senha") String senha) throws ServletException {
+    public ResponseEntity<LoginDTO> login(@RequestParam("email") String email,
+                                          @RequestParam("senha") String senha) throws ServletException {
         UsuarioDTO dto = new UsuarioDTO();
         dto.setEmail(email);
         dto.setSenha(senha);
 
-        String response = authService.getToken(converter.convert(dto));
-        return ResponseEntity.status(HttpStatus.OK).body("Bearer " + response);
-    }
-
-    @ApiOperation(value = "Testa conexao com servico", response = String.class)
-    @GetMapping("/connection")
-    public ResponseEntity<String> connectionTest() {
-        return ResponseEntity.status(HttpStatus.OK).body("ok");
+        LoginDTO response = authService.getAuthentication(converter.convert(dto));
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
 }
