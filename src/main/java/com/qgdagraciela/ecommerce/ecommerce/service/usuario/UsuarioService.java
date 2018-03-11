@@ -62,7 +62,6 @@ public class UsuarioService {
     private Usuario merge(Usuario usuario, Usuario actual) {
         actual.setNome(usuario.getNome());
         actual.setEmail(usuario.getEmail());
-        actual.setSenha(passwordEncoder.encode(usuario.getSenha()));
         actual.setCidade(usuario.getCidade());
         actual.setEstado(usuario.getEstado());
         actual.setEndereco(usuario.getEndereco());
