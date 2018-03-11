@@ -64,7 +64,8 @@ public class UsuarioController implements CrudController<UsuarioDTO> {
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@RequestHeader("authorization") String token,
                                  @PathVariable("id") Long id) {
-        return null;
+        service.delete(id);
+        return ResponseEntity.status(HttpStatus.OK).body("");
     }
 
 }
