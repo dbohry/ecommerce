@@ -20,6 +20,7 @@ public class UsuarioConverter {
         entity.setTelefone(dto.getTelefone());
         entity.setId(dto.getId());
         entity.setAtivo(Boolean.TRUE);
+        entity.setCpf(dto.getCpf());
 
         return entity;
     }
